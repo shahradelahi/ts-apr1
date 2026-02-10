@@ -1,0 +1,63 @@
+{
+  "name": "@se-oss/apr1",
+  "version": "0.0.0",
+  "description": "Apache's APR1 MD5 password hashing for Node.js and browsers.",
+  "keywords": [
+    "apr1",
+    "md5",
+    "hash",
+    "htpasswd",
+    "isomorphic"
+  ],
+  "homepage": "https://github.com/shahradelahi/ts-apr1",
+  "repository": "github:shahradelahi/ts-apr1",
+  "license": "MIT",
+  "author": "Shahrad Elahi <shahrad@litehex.com> (https://github.com/shahradelahi)",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/browser.d.ts",
+      "default": {
+        "import": "./dist/browser.js",
+        "require": "./dist/browser.cjs"
+      }
+    }
+  },
+  "main": "dist/browser.cjs",
+  "module": "dist/browser.js",
+  "types": "dist/browser.d.ts",
+  "files": [
+    "dist/**",
+    "!**/*.d.cts"
+  ],
+  "scripts": {
+    "bench": "vitest bench --run",
+    "build": "pnpm typecheck && tsup",
+    "clean": "git clean -dfx **/node_modules/** dist .tsbuildinfo",
+    "dev": "tsup --watch",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "pnpm typecheck && eslint .",
+    "lint:fix": "eslint --fix .",
+    "prepublishOnly": "pnpm build && pnpm lint && pnpm format:check && pnpm test",
+    "test": "vitest --run",
+    "typecheck": "tsc --noEmit"
+  },
+  "prettier": "@shahrad/prettier-config",
+  "dependencies": {
+    "@se-oss/md5": "^1.1.1",
+    "@se-oss/timing-safe-compare": "^1.0.0"
+  },
+  "devDependencies": {
+    "@shahrad/eslint-config": "^1.0.1",
+    "@shahrad/prettier-config": "^1.2.2",
+    "@shahrad/tsconfig": "^1.2.0",
+    "@types/node": "^24.10.1",
+    "globals": "^16.5.0",
+    "prettier": "^3.7.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.14"
+  },
+  "packageManager": "pnpm@10.23.0+sha512.21c4e5698002ade97e4efe8b8b4a89a8de3c85a37919f957e7a0f30f38fbc5bbdd05980ffe29179b2fb6e6e691242e098d945d1601772cad0fef5fb6411e2a4b"
+}
