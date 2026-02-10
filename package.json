@@ -1,6 +1,6 @@
 {
   "name": "@se-oss/apr1",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Apache's APR1 MD5 password hashing for Node.js and browsers.",
   "keywords": [
     "apr1",
